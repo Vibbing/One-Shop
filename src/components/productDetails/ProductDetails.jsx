@@ -10,8 +10,19 @@ export default function ProductDetails() {
   const getTheRespectiveProductDetails = async () => {
     try {
       const product = await axios.get(`/products/${proId}`);
-      console.log(product);
-      setProductData(product.data);
+      const fakeProductData = product.data;
+
+      const localStoragePRoducts = JSON.parse(localStorage.getItem("products"));
+
+      const productFromLocalStorage = localStoragePRoducts.find(
+        (product) => product.id == proId
+      );
+
+      const productData = productFromLocalStorage
+        ? productFromLocalStorage
+        : fakeProductData;
+        
+      setProductData(productData);
     } catch (error) {
       console.error("Getting Product details ERROR:", error);
     }
@@ -21,7 +32,7 @@ export default function ProductDetails() {
     getTheRespectiveProductDetails();
   }, [proId]);
 
-  return ( productData ? 
+  return productData ? (
     <div className="w-full h-full flex justify-center items-center gap-10">
       <img
         className="w-[40%] h-[60%] object-contain "
@@ -46,6 +57,8 @@ export default function ProductDetails() {
           </button>
         </div>
       </div>
-    </div> : <ProductDetailsShimmer/>
+    </div>
+  ) : (
+    <ProductDetailsShimmer />
   );
 }

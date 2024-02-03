@@ -1,4 +1,4 @@
-import { useContext} from "react";
+import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { ProductContext } from "../utils/Context";
 import { CategoryContext } from "../utils/CategoryContext";
@@ -17,22 +17,22 @@ export default function Navbar() {
       Math.random() * 255
     )}, ${Math.floor(Math.random() * 255)}, 0.5)`;
   };
- 
-  const { getSpecifiedCategoryData,setCategory } = useContext(CategoryContext);
+
+  const { getSpecifiedCategoryData, setCategory } = useContext(CategoryContext);
 
   const handleCategoryCall = (categoryValue) => {
     getSpecifiedCategoryData(categoryValue);
   };
 
   const getAllProductsBack = () => {
-    setCategory([])
-  }
+    setCategory([]);
+  };
 
   return (
     <div className="flex flex-col w-full h-full justify-between items-center">
-      <div>
+      <div className="flex flex-col justify-center items-center">
         <NavLink
-        onClick={()=>getAllProductsBack()}
+          onClick={() => getAllProductsBack()}
           to="/"
           className={({ isActive }) =>
             [
@@ -44,14 +44,14 @@ export default function Navbar() {
           Home
         </NavLink>
         <NavLink
-          to="/product-details"
+          to="/add-new-product"
           className={({ isActive }) =>
             [
               "mt-5 text-lg",
               isActive ? "text-red-600 font-semibold text-xl" : "text-black",
             ].join(" ")
           }
-        ></NavLink>
+        >Add Product</NavLink>
       </div>
 
       <div className="mb-5 text-center">

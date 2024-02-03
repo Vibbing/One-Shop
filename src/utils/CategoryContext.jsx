@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useState } from "react";
 import { instance as axios } from "./axios";
 
@@ -15,6 +16,7 @@ export default function CategoryContextPro(props) {
       console.error("Failed to get the specified category data ERROR:", error);
     }
   };
+
 
  return(
     <CategoryContext.Provider value={{category,setCategory,getSpecifiedCategoryData}}>
