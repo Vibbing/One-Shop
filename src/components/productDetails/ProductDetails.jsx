@@ -49,14 +49,14 @@ export default function ProductDetails() {
           {productData?.description}
         </h3>
         <h4 className="mb-5 text-3xl text-gray-700">${productData?.price}</h4>
-        <div className=" flex gap-5 ">
+        {/* <div className=" flex gap-5 ">
           <button className="bg-blue-200 w-[15%] p-1  mt-5 rounded-lg border-2 border-blue-400 shadow-lg font-semibold hover:scale-110 hover:bg-blue-300">
             Edit
           </button>
           <button className="bg-red-200 w-[15%] p-1  mt-5 rounded-lg border-2 border-red-400 shadow-lg font-semibold hover:scale-110 hover:bg-red-300">
             Delete
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   ) : (
