@@ -33,7 +33,7 @@ export default function Card() {
           <h1 className=" text-s text-center hover:text-blue-400">
             {product?.title}
           </h1>
-          <small>{product?.price}</small>
+          <small>${product?.price}</small>
         </div>
       ))}
     </>
