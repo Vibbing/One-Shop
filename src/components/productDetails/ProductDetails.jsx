@@ -11,10 +11,11 @@ export default function ProductDetails() {
     try {
       const product = await axios.get(`/products/${proId}`);
       const fakeProductData = product.data;
+      console.log(fakeProductData,";;;;;;;")
 
       const localStoragePRoducts = JSON.parse(localStorage.getItem("products"));
 
-      const productFromLocalStorage = localStoragePRoducts.find(
+      const productFromLocalStorage = localStoragePRoducts?.find(
         (product) => product.id == proId
       );
 

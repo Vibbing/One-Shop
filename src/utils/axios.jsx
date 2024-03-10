@@ -1,5 +1,6 @@
 import axios from "axios";
 
 export const instance = axios.create({
-  baseURL: import.meta.env.VITE_URL,
+  // baseURL: import.meta.env.VITE_URL,
+  baseURL:"https://fakestoreapi.com/"
 });
